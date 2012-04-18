@@ -1,0 +1,6 @@
+inherit mate
+
+
+PATCH_URI="1.2.0-no-undefined.patch"
+
+CYGCONF_ARGS="--libexecdir=/usr/bin"

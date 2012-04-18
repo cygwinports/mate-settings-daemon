@@ -1,0 +1,41 @@
+--- origsrc/mate-settings-daemon-1.2.0/configure.ac	2012-02-28 16:45:56.000000000 -0600
++++ src/mate-settings-daemon-1.2.0/configure.ac	2012-04-16 23:10:09.770272500 -0500
+@@ -75,6 +75,9 @@ PKG_CHECK_MODULES(SETTINGS_PLUGIN,
+ 
+ MSD_PLUGIN_LDFLAGS="-export_dynamic -module -avoid-version -no-undefined"
+ case $host_os in
++  cygwin*)
++    MSD_PLUGIN_LDFLAGS="${MSD_PLUGIN_LDFLAGS} -Wl,\$(top_builddir)/mate-settings-daemon/libmsd.a"
++    ;;
+   darwin*)
+     MSD_PLUGIN_LDFLAGS="${MSD_PLUGIN_LDFLAGS} -Wl,-bundle_loader,\$(top_builddir)/mate-settings-daemon/mate-settings-daemon"
+     ;;
+--- origsrc/mate-settings-daemon-1.2.0/mate-settings-daemon/Makefile.am	2012-02-28 16:45:56.000000000 -0600
++++ src/mate-settings-daemon-1.2.0/mate-settings-daemon/Makefile.am	2012-04-16 23:11:18.773219200 -0500
+@@ -74,6 +74,7 @@ mate_settings_daemon_CFLAGS = 		\
+ 	$(AM_CFLAGS)
+ 
+ mate_settings_daemon_LDFLAGS = 	\
++	-export-dynamic	-Wl,--out-implib,libmsd.a	\
+ 	$(AM_LDFLAGS)
+ 
+ mate_settings_daemon_LDADD = 		\
+--- origsrc/mate-settings-daemon-1.2.0/plugins/media-keys/Makefile.am	2012-02-28 16:45:55.000000000 -0600
++++ src/mate-settings-daemon-1.2.0/plugins/media-keys/Makefile.am	2012-04-16 23:41:43.335578200 -0500
+@@ -161,6 +161,7 @@ test_media_keys_CFLAGS = \
+ 	$(AM_CFLAGS)
+ 
+ test_media_keys_LDADD = \
++	$(top_builddir)/plugins/media-keys/cut-n-paste/libgvc.la	\
+ 	$(top_builddir)/mate-settings-daemon/libmsd-profile.la		\
+ 	$(top_builddir)/plugins/common/libcommon.la			\
+ 	$(SETTINGS_DAEMON_LIBS)			\
+@@ -169,8 +170,6 @@ test_media_keys_LDADD = \
+ 	$(GST_LIBS)				\
+ 	-lm
+ 
+-test_media_keys_LDADD += $(top_builddir)/plugins/media-keys/cut-n-paste/libgvc.la
+-
+ gtkbuilderdir = $(pkgdatadir)
+ gtkbuilder_DATA =	\
+ 	acme.ui		\
