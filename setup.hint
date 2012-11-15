@@ -1,5 +1,0 @@
-category: MATE
-requires: libcairo2 libdbus1_3 libdbus-glib_1_2 libfontconfig1 libgdk_pixbuf2.0_0 libglib2.0_0 libgstinterfaces0.10_0 libgstreamer0.10_0 libgtk2.0_0 libintl8 libmateconf2_4 libmate-desktop2_17 libmatekbd4 libmatenotify1 libnspr4 libnss3 libX11_6 libXi6 libxklavier16 mate-conf mate-icon-theme mate-themes
-sdesc: "MATE settings daemon"
-ldesc: "MATE is a fork of the GNOME 2 desktop. It provides an intuitive
-and attractive desktop to Linux users using traditional metaphors."
