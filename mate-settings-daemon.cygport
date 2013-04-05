@@ -1,7 +1,7 @@
 inherit mate
 
 NAME="mate-settings-daemon"
-VERSION=1.4.0
+VERSION=1.6.0
 RELEASE=1
 CATEGORY="MATE"
 SUMMARY="MATE settings daemon"
@@ -10,5 +10,10 @@ and attractive desktop to Linux users using traditional metaphors."
 REQUIRES="mate-icon-theme mate-themes"
 
 PATCH_URI="1.2.0-no-undefined.patch"
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+mate_settings_daemon_CONTENTS="etc/ usr/bin/ usr/lib/${NAME}/ usr/share/"
+mate_settings_daemon_devel_REQUIRES=${NAME}
+mate_settings_daemon_devel_CONTENTS="usr/include/ usr/lib/pkgconfig/"
 
 CYGCONF_ARGS="--libexecdir=/usr/bin"
