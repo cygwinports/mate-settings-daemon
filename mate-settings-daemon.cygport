@@ -15,3 +15,5 @@ PKG_NAMES="${NAME} ${NAME}-devel"
 mate_settings_daemon_CONTENTS="etc/ usr/lib/${NAME}/ usr/libexec/ usr/share/"
 mate_settings_daemon_devel_REQUIRES=${NAME}
 mate_settings_daemon_devel_CONTENTS="usr/include/ usr/lib/pkgconfig/"
+
+DEPS_PATH="/usr/libexec"
