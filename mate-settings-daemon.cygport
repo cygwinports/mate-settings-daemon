@@ -1,7 +1,7 @@
 inherit mate
 
 NAME="mate-settings-daemon"
-VERSION=1.6.1
+VERSION=1.6.2
 RELEASE=1
 CATEGORY="MATE"
 SUMMARY="MATE settings daemon"
@@ -17,3 +17,4 @@ mate_settings_daemon_devel_REQUIRES=${NAME}
 mate_settings_daemon_devel_CONTENTS="usr/include/ usr/lib/pkgconfig/"
 
 DEPS_PATH="/usr/libexec"
+DIFF_EXCLUDES="*.desktop.in"
