@@ -20,22 +20,3 @@
  	$(AM_LDFLAGS)
  
  mate_settings_daemon_LDADD = 		\
---- origsrc/mate-settings-daemon-1.2.0/plugins/media-keys/Makefile.am	2012-02-28 16:45:55.000000000 -0600
-+++ src/mate-settings-daemon-1.2.0/plugins/media-keys/Makefile.am	2012-04-16 23:41:43.335578200 -0500
-@@ -161,6 +161,7 @@ test_media_keys_CFLAGS = \
- 	$(AM_CFLAGS)
- 
- test_media_keys_LDADD = \
-+	$(top_builddir)/plugins/media-keys/cut-n-paste/libgvc.la	\
- 	$(top_builddir)/mate-settings-daemon/libmsd-profile.la		\
- 	$(top_builddir)/plugins/common/libcommon.la			\
- 	$(SETTINGS_DAEMON_LIBS)			\
-@@ -169,8 +170,6 @@ test_media_keys_LDADD = \
- 	$(GST_LIBS)				\
- 	-lm
- 
--test_media_keys_LDADD += $(top_builddir)/plugins/media-keys/cut-n-paste/libgvc.la
--
- gtkbuilderdir = $(pkgdatadir)
- gtkbuilder_DATA =	\
- 	acme.ui		\

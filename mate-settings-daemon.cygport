@@ -1,7 +1,7 @@
 inherit mate
 
 NAME="mate-settings-daemon"
-VERSION=1.8.2
+VERSION=1.10.2
 RELEASE=1
 CATEGORY="MATE"
 SUMMARY="MATE settings daemon"
