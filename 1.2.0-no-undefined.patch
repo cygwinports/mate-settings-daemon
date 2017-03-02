@@ -20,3 +20,63 @@
  	$(AM_LDFLAGS)
  
  mate_settings_daemon_LDADD = 		\
+--- origsrc/mate-settings-daemon-1.16.1/plugins/a11y-keyboard/Makefile.am	2017-01-23 07:24:48.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/a11y-keyboard/Makefile.am	2017-03-01 16:10:28.927858000 -0600
+@@ -62,6 +62,7 @@ liba11y_keyboard_la_LDFLAGS = 		\
+ liba11y_keyboard_la_LIBADD  = 		\
+ 	$(SETTINGS_PLUGIN_LIBS)		\
+ 	$(XF86MISC_LIBS)		\
++	-lXi -lX11			\
+ 	$(LIBNOTIFY_LIBS)		\
+ 	$(NULL)
+ 
+--- origsrc/mate-settings-daemon-1.16.1/plugins/background/Makefile.am	2017-01-23 07:24:48.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/background/Makefile.am	2017-03-01 16:13:20.194082300 -0600
+@@ -56,6 +56,7 @@ libbackground_la_LDFLAGS = 		\
+ libbackground_la_LIBADD  = 		\
+ 	$(SETTINGS_PLUGIN_LIBS)		\
+ 	$(MATE_DESKTOP_LIBS)		\
++	-lX11				\
+ 	$(NULL)
+ 
+ plugin_in_files = 		\
+--- origsrc/mate-settings-daemon-1.16.1/plugins/clipboard/Makefile.am	2017-01-23 07:24:48.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/clipboard/Makefile.am	2017-03-01 16:14:32.672806900 -0600
+@@ -30,6 +30,7 @@ libclipboard_la_LDFLAGS = 	\
+ 
+ libclipboard_la_LIBADD  = 	\
+ 	$(SETTINGS_PLUGIN_LIBS)	\
++	-lX11			\
+ 	$(NULL)
+ 
+ plugin_in_files = 		\
+--- origsrc/mate-settings-daemon-1.16.1/plugins/keyboard/Makefile.am	2017-01-23 07:24:49.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/keyboard/Makefile.am	2017-03-01 16:17:23.643517500 -0600
+@@ -43,6 +43,7 @@ libkeyboard_la_LIBADD  = 	\
+ 	$(SETTINGS_PLUGIN_LIBS)	\
+ 	$(XF86MISC_LIBS)	\
+ 	$(LIBMATEKBDUI_LIBS)	\
++	-lX11			\
+ 	$(NULL)
+ 
+ plugin_in_files = 		\
+--- origsrc/mate-settings-daemon-1.16.1/plugins/xrandr/Makefile.am	2017-01-23 07:24:49.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/xrandr/Makefile.am	2017-03-01 16:23:52.924838300 -0600
+@@ -64,6 +64,7 @@ libxrandr_la_LDFLAGS = 			\
+ libxrandr_la_LIBADD  =			\
+ 	$(SETTINGS_PLUGIN_LIBS)		\
+ 	$(LIBNOTIFY_LIBS)		\
++	-lX11				\
+ 	$(MATE_DESKTOP_LIBS)
+ 
+ plugin_in_files =			\
+--- origsrc/mate-settings-daemon-1.16.1/plugins/xsettings/Makefile.am	2017-01-23 07:24:49.000000000 -0600
++++ src/mate-settings-daemon-1.16.1/plugins/xsettings/Makefile.am	2017-03-01 16:25:28.592160300 -0600
+@@ -34,6 +34,7 @@ libxsettings_la_LDFLAGS = 	\
+ libxsettings_la_LIBADD  = 	\
+ 	$(SETTINGS_PLUGIN_LIBS)	\
+ 	$(FONTCONFIG_LIBS)	\
++	-lX11			\
+ 	$(NULL)
+ 
+ plugin_in_files = 		\
